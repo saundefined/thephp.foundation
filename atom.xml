@@ -3,13 +3,13 @@
     <title><![CDATA[The PHP Foundation]]></title>
     <link href="/atom.xml" rel="self"/>
     <link href="/"/>
-    <updated>2022-03-29T11:19:58-05:00</updated>
+    <updated>2022-03-29T16:51:32+00:00</updated>
     <id>/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
             <title type="html"><![CDATA[The PHP Foundation Update, March 2022]]></title>
             <link href="/blog/2022/03/31/the-php-foundation-update-march-2022/"/>
-            <updated>2022-03-31T00:00:00-05:00</updated>
+            <updated>2022-03-31T00:00:00+00:00</updated>
             <id>/blog/2022/03/31/the-php-foundation-update-march-2022/</id>
             <content type="html"><![CDATA[<p>We promised to publish monthly updates, but everything went wrong in February.
 Fortunately, we are back to give you an update for March.</p>
@@ -83,7 +83,7 @@ So whenever possible, developers will be expected to update the <a href="https:/
             <entry>
             <title type="html"><![CDATA[The PHP Foundation Update, January 2022]]></title>
             <link href="/blog/2022/01/21/the-php-foundation-update-january-2022/"/>
-            <updated>2022-01-21T00:00:00-06:00</updated>
+            <updated>2022-01-21T00:00:00+00:00</updated>
             <id>/blog/2022/01/21/the-php-foundation-update-january-2022/</id>
             <content type="html"><![CDATA[<p>In November, the PHP Foundation was launched publicly and we’ve seen enormous support from the community.
 Thanks to all of you who have already supported the initiative! We’re planning to update you about our workstream activities on a monthly basis, and this is our first update post.
