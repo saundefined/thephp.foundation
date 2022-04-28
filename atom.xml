@@ -3,7 +3,7 @@
     <title><![CDATA[The PHP Foundation]]></title>
     <link href="/atom.xml" rel="self"/>
     <link href="/"/>
-    <updated>2022-04-28T09:12:15+00:00</updated>
+    <updated>2022-04-28T09:50:48+00:00</updated>
     <id>/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -17,11 +17,11 @@
 
 <p>You don’t necessarily have to be a PHP Foundation backer to follow the PHP Roundup. We’ll be publishing the posts on our website, and you can subscribe to a newsletter:</p>
 
-<form method="POST" action="https://php-foundation-mailcoach.com/subscribe/9be4e2bd-f9d8-475c-b00e-2dcc4cf90056">
+<form method="POST" action="https://php-foundation-mailcoach.com/subscribe/9be4e2bd-f9d8-475c-b00e-2dcc4cf90056" class="mb-8 flex justify-center items-center h-screen">
     <div>
-        <label for="email">Email</label>
-        <input type=email name="email">
-        <button type="submit">Subscribe</button>
+        <label for="email" >Email</label>
+        <input type=email name="email" class="form-inp">
+        <button type="submit" class="form-btn">Subscribe</button>
     </div>
 </form>
 
@@ -120,11 +120,11 @@
 
 <p>Follow us on Twitter <a href="https://twitter.com/thephpf">@ThePHPF</a> to get the latest updates from the Foundation.</p>
 
+<p>💜️ 🐘</p>
+
 <blockquote>
   <p>PHP Roundup is prepared by Ayesh Karunaratne from <strong><a href="https://php.watch">PHP.Watch</a></strong>, a source for PHP News, Articles, Upcoming Changes, and more.</p>
 </blockquote>
-
-<p>💜️ 🐘</p>
 ]]></content>
         </entry>
             <entry>
