@@ -3,7 +3,7 @@
     <title><![CDATA[The PHP Foundation]]></title>
     <link href="/atom.xml" rel="self"/>
     <link href="/"/>
-    <updated>2022-04-27T10:58:39+00:00</updated>
+    <updated>2022-04-28T08:49:27+00:00</updated>
     <id>/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
@@ -104,7 +104,9 @@
             <link href="/blog/2022/01/21/the-php-foundation-update-january-2022/"/>
             <updated>2022-01-21T00:00:00+00:00</updated>
             <id>/blog/2022/01/21/the-php-foundation-update-january-2022/</id>
-            <content type="html"><![CDATA[<p>In November, the PHP Foundation was launched publicly and we’ve seen enormous support from the community.
+            <content type="html"><![CDATA[<p><code>&lt;?php echo 'Hello world!';</code></p>
+
+<p>In November, the PHP Foundation was launched publicly and we’ve seen enormous support from the community.
 Thanks to all of you who have already supported the initiative! We’re planning to update you about our workstream activities on a monthly basis, and this is our first update post.
 Let’s take a look at what we’ve been working on!</p>
 
