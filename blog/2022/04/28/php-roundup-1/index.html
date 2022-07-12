@@ -1,48 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>PHP Roundup &amp;#35;1 &mdash; The PHP Foundation &mdash; Supporting, Advancing, and Developing the PHP Language</title>
+    <title>PHP Roundup #1 &mdash; The PHP Foundation &mdash; Supporting, Advancing, and Developing the PHP Language</title>
+    <meta name="description" content="The PHP Foundation &mdash; Supporting, Advancing, and Developing the PHP Language">
     <meta charset="utf-8">
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="stylesheet" href="https://thephp.foundation/assets/css/app.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
 
-    <link rel="apple-touch-startup-image" href="/assets/icons/php_foundation.svg">
+    <meta property="og:url" content="https://thephp.foundation/blog/2022/04/28/php-roundup-1/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="PHP Roundup #1">
+    <meta property="og:description" content="The PHP Foundation &mdash; Supporting, Advancing, and Developing the PHP Language">
+    <meta property="og:image" content="https://thephp.foundation/assets/share/2022-04-28-php-roundup-1.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="https://thephp.foundation">
+    <meta property="twitter:url" content="https://thephp.foundation/blog/2022/04/28/php-roundup-1/">
+    <meta name="twitter:title" content="PHP Roundup #1">
+    <meta name="twitter:description" content="The PHP Foundation &mdash; Supporting, Advancing, and Developing the PHP Language">
+    <meta name="twitter:image" content="https://thephp.foundation/assets/share/2022-04-28-php-roundup-1.png">
+
+    <link rel="apple-touch-startup-image" href="https://thephp.foundation/assets/icons/php_foundation.svg">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" sizes="76x76" href="/assets/icons/php_foundation.svg">
-    <link rel="shortcut icon" sizes="120x120" href="/assets/icons/php_foundation.svg">
-    <link rel="shortcut icon" sizes="128x128" href="/assets/icons/php_foundation.svg">
-    <link rel="shortcut icon" sizes="152x152" href="/assets/icons/php_foundation.svg">
-    <link rel="shortcut icon" sizes="196x196" href="/assets/icons/php_foundation.svg">
-    <link rel="shortcut icon" sizes="512x512" href="/assets/icons/php_foundation.svg">
-    <link rel="shortcut icon" sizes="1024x1024" href="/assets/icons/php_foundation.svg">
-    <link rel="shortcut icon" sizes="2048x2048" href="/assets/icons/php_foundation.svg">
-    <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/php_foundation.svg">
-    <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/php_foundation.svg">
-    <link rel="apple-touch-icon" sizes="128x128" href="/assets/icons/php_foundation.svg">
-    <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/php_foundation.svg">
-    <link rel="apple-touch-icon" sizes="196x196" href="/assets/icons/php_foundation.svg">
-    <link rel="apple-touch-icon" sizes="512x512" href="/assets/icons/php_foundation.svg">
-    <link rel="apple-touch-icon" sizes="1024x1024" href="/assets/icons/php_foundation.svg">
-    <link rel="apple-touch-icon" sizes="2048x2048" href="/assets/icons/php_foundation.svg">
+    <link rel="shortcut icon" sizes="76x76" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="shortcut icon" sizes="120x120" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="shortcut icon" sizes="128x128" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="shortcut icon" sizes="152x152" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="shortcut icon" sizes="196x196" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="shortcut icon" sizes="512x512" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="shortcut icon" sizes="1024x1024" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="shortcut icon" sizes="2048x2048" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="apple-touch-icon" sizes="128x128" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="apple-touch-icon" sizes="196x196" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="apple-touch-icon" sizes="512x512" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="apple-touch-icon" sizes="1024x1024" href="https://thephp.foundation/assets/icons/php_foundation.svg">
+    <link rel="apple-touch-icon" sizes="2048x2048" href="https://thephp.foundation/assets/icons/php_foundation.svg">
 
-    <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="The PHP Foundation activity feed" />
-                </head>
+    <link rel="alternate" type="application/atom+xml" href="https://thephp.foundation/atom.xml"
+          title="The PHP Foundation activity feed"/>
+            <script src="//cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+</head>
 <body>
-    <div class="wrapper w-full">
+<div class="wrapper w-full">
     <header>
         <header class="border-b border-hborder box-border z-50 flex items-center
             justify-between bg-white top-0 px-4 h-12 sticky min-w-[320px]
-            box-border md:h-16 md:px-8">
+            box-border md:h-16 lg:px-8"
+                x-data="{ isOpen: false }" @keydown.escape="isOpen = false" @click.away="isOpen = false">
             <div class="nav flex items-center h-full">
                 <a aria-current="page" class="no-underline mr-8 flex items-center h-full" href="/">
                     <div class="flex mr-2 md:mr-4 h-full">
-                        <img class="h-full" src="/assets/icons/php_foundation.svg" alt="php-foundation-logo">
+                        <img class="h-full" src="https://thephp.foundation/assets/icons/php_foundation.svg"
+                             alt="php-foundation-logo">
                     </div>
 
                     <div class="text-[#27282c] font-semibold text-sm md:text-xl ">
@@ -58,30 +77,61 @@
                         php.net
                     </a>
                 </div>
+
+                <div class="hidden lg:block text-base lg:ml-4">
+                    <a class="text-[rgba(25,25,28,.7)] nav-org"
+                       target="_blank" rel="noopener noreferrer"
+                       href="https://github.com/ThePHPF/thephp.foundation">
+                        GitHub
+                    </a>
+                </div>
             </div>
 
-           <div class="header-group flex items-center">
-                <div class="hidden lg:block text-base">
-                    <a class="text-[rgba(25,25,28,.7)] mr-4"
-                       href="/blog">
-                       Blog
+            <div class="header-group flex items-center">
+                <div class="hidden lg:block text-xl lg:text-base font-medium lg:font-normal absolute top-12 left-0 right-0 drop-shadow-xl lg:drop-shadow-none lg:top-0 lg:relative px-4 lg:px-0 bg-white"
+                     :class="{ 'block': isOpen, 'hidden': !isOpen }">
+                    <a class="text-[rgba(25,25,28,.7)] mr-0 lg:mr-4 block lg:inline-block py-2 lg:py-0 block lg:hidden"
+                       target="_blank" rel="noopener noreferrer"
+                       href="https://php.net/">
+                        php.net
+                    </a>
+                    <a class="text-[rgba(25,25,28,.7)] mr-0 lg:mr-4 block lg:inline-block py-2 lg:py-0 block lg:hidden"
+                       target="_blank" rel="noopener noreferrer"
+                       href="https://github.com/ThePHPF/thephp.foundation">
+                        GitHub
+                    </a>
+                    <a class="text-[rgba(25,25,28,.7)] mr-0 lg:mr-4 block lg:inline-block py-2 lg:py-0"
+                       href="https://thephp.foundation/blog">
+                        Blog
                     </a>
                 </div>
 
-               <a href="mailto:contact@thephp.foundation">
-                   <button data-test="button" type="button"
-                           class="py-1.5 px-4 text-white bg-[#7f52ff] rounded-3xl
+                <a href="mailto:contact@thephp.foundation">
+                    <button data-test="button" type="button"
+                            class="py-1.5 px-4 text-white bg-[#7f52ff] rounded-3xl
                             hover:bg-[rgba(127,82,255,.8)]">
-                       Write Us
-                   </button>
-               </a>
-           </div>
-    </header>
+                        Write Us
+                    </button>
+                </a>
 
-    <main class="flex flex-row justify-center min-w-[320px] min-h-[100vh] w-full pt-4">
-    <article class="max-w-2xl w-full bg-white">
+                <button :aria-expanded="isOpen" aria-controls="nav-list" aria-label="toggle menu"
+                        @click="isOpen = !isOpen" type="button"
+                        class="block px-2 text-[#7f52ff] lg:hidden focus:outline-none">
+                    <svg class="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path x-show.transition="!isOpen"
+                              d="M3 7h18a1 1 0 100-2H3a1 1 0 000 2zm18 10H3a1 1 0 000 2h18a1 1 0 000-2zm0-4H3a1 1 0 000 2h18a1 1 0 000-2zm0-4H3a1 1 0 000 2h18a1 1 0 000-2z"></path>
+                        <path x-show="isOpen"
+                              d="M13.41 12l6.3-6.29a1.004 1.004 0 00-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 10-1.42 1.42l6.3 6.29-6.3 6.29a.999.999 0 000 1.42 1 1 0 001.42 0l6.29-6.3 6.29 6.3a1.001 1.001 0 001.639-.325 1 1 0 00-.22-1.095L13.41 12z"
+                              style="display: none;"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="flex flex-row justify-center min-w-[320px] min-h-[100vh] w-full pt-4">
+    <article class="max-w-2xl w-full bg-white px-4 md:px-0">
         <header class="mb-8">
-            <h1 class="">PHP Roundup &#35;1</h1>
+            <h1 class="">PHP Roundup #1</h1>
 
                         <div class="text-xs">
 				Published on <span>Apr 28, 2022</span>
@@ -96,13 +146,17 @@
 
 <p>You don’t necessarily have to be a PHP Foundation backer to follow the PHP Roundup. We’ll be publishing the posts on our website, and you can subscribe to a newsletter:</p>
 
-<form method="POST" action="https://php-foundation-mailcoach.com/subscribe/9be4e2bd-f9d8-475c-b00e-2dcc4cf90056" class="mb-8 flex justify-center items-center h-screen">
-    <div>
-        <label for="email" >Email</label>
-        <input type=email name="email" class="form-inp">
-        <button type="submit" class="form-btn">Subscribe</button>
+<div class="px-4 pt-3 pb-10 mb-6 border-b border-t -mx-4 border-gray-200">
+    <div class="max-w-xl mx-auto">
+        <h2 class="text-xl text-left inline-block font-semibold text-gray-800 mb-1">Subscribe to PHP Foundation Updates</h2>
+        <form method="POST" action="https://php-foundation-mailcoach.com/subscribe/9be4e2bd-f9d8-475c-b00e-2dcc4cf90056" class="mt-2">
+            <div class="flex items-center">
+                <input placeholder="Your email address" type="email" class="w-full px-2 py-4 mr-2  bg-gray-100 shadow-inner rounded-md border border-gray-400 focus:outline-none" name="email" required>
+                <button class="bg-[#7f52ff] text-gray-200 px-5 py-2 rounded shadow " style="margin-left: -7.8rem;">Sign Up</button>
+            </div>
+        </form>
     </div>
-</form>
+</div>
 
 <p>The PHP Foundation currently supports six part-time PHP contributors who work on both maintenance and new features for PHP. Maintenance is not limited to fixing bugs, but also includes work to reduce technical debt, making life easier for everyone working on PHP. The contributors funded by the PHP Foundation collaborate with other contributors on code, documentation, and discussions.</p>
 
@@ -131,7 +185,7 @@
 <p>Learn more about this RFC from the <a href="https://phpinternals.news/97">PHP Internals News podcast</a> hosted by Derick Rethans.</p></li>
 <li><p><strong>Discussion: <a href="https://wiki.php.net/rfc/true-type">Add true type</a> 💜</strong></p>
 
-<p>RFC by George Peter Banyard is currently under discussion, to add true as a type to PHP. In PHP 8.0 Union Types, we added <code>false</code>as one of the possible members of Union Types, but left out <code>true</code>. This RFC proposes to complete it by adding <code>true</code>as a type as well.</p></li>
+<p>RFC by George Peter Banyard is currently under discussion, to add true as a type to PHP. In PHP 8.0 Union Types, we added <code>false</code> as one of the possible members of Union Types, but left out <code>true</code>. This RFC proposes to complete it by adding <code>true</code> as a type as well.</p></li>
 <li><p><strong>Accepted: <a href="https://wiki.php.net/rfc/undefined_variable_error_promotion">Undefined Variable Error Promotion</a></strong></p>
 
 <p>RFC by Mark Randall accepted with 33:8 votes in favor.</p>
@@ -207,42 +261,67 @@
 
         </section>
 
-                <nav class="flex flex-row items-center justify-center mt-4 article">
-            <ul class="list-none">
-                                                    <li>Previous: <a class="previous" href="/blog/2022/03/31/the-php-foundation-update-march-2022/" title="The PHP Foundation Update, March 2022"><span class="title">The PHP Foundation Update, March 2022</span></a></li>
-                            </ul>
-        </nav>
-            </article>
+        <div class="border-t pt-5 my-5">
+                        <nav class="flex flex-row justify-between article -mx-2 mb-5">
+                                <a href="https://thephp.foundation/blog/2022/03/31/the-php-foundation-update-march-2022/" class="flex flex-col w-1/2 border p-2 mx-2 rounded hover:border-[#7f52ff] transition-all no-underline">
+                    <div class="mb-1 text-sm text-gray-600 font-medium">Previous</div>
+                    <div class="font-bold text-blue-500">The PHP Foundation Update, March 2022</div>
+                </a>
+                
+                                <a href="https://thephp.foundation/blog/2022/05/02/the-php-foundation-update-april-2022/" class="flex flex-col w-1/2 border p-2 mx-2 rounded hover:border-[rgba(127,82,255,.8)] transition-all no-underline">
+                    <div class="mb-1 text-sm text-gray-600 font-medium">Next</div>
+                    <div class="font-bold text-blue-500">PHP Foundation Update, April 2022</div>
+                </a>
+                            </nav>
+            
+            <div>
+                <a href="https://github.com/ThePHPF/thephp.foundation/edit/main/source/_posts/2022-04-28-php-roundup-1.md" class="nav-org" rel="noopener noreferrer" target="_blank">Edit this page on GitHub</a>
+            </div>
+        </div>
+    </article>
 </main>
 
-    <footer class="bg-[#27282c] py-8 px-4 md:flex items-center justify-between">
-        <ul class="flex flex-wrap list-none mb-6 text-[#27282c] text-base font-normal items-center md:mb-0">
-            <li class="footer-li">
-                <a href="/code-of-conduct"
-                    class="text-[rgba(39, 40, 44, .7)] footer-link hover:text-[#27282c]">
-                    Code of Conduct
-                </a>
-            </li>
+        <footer class="py-8 px-4 md:flex md:items-center md:justify-between bg-[#27282c]">
+            <ul class="mb-6 md:mb-0 flex flex-wrap items-center list-none text-[#27282c] text-base font-normal">
+                <li class="footer-li">
+                    <a href="https://thephp.foundation/code-of-conduct"
+                       class="footer-link text-white/30 hover:text-slate-900 no-underline hover:no-underline border-b-0 border-transparent">
+                        Code of Conduct
+                    </a>
+                </li>
 
-            <li class="footer-li lg:hidden">
-                <a href="/blog"
-                    class="text-[rgba(39, 40, 44, .7)] footer-link hover:text-[#27282c]">
-                    Blog
-                </a>
-            </li>
+                <li class="footer-li lg:hidden">
+                    <a href="https://thephp.foundation/blog"
+                       class="footer-link text-white/30 hover:text-slate-900 no-underline hover:no-underline border-b-0 border-transparent">
+                        Blog
+                    </a>
+                </li>
 
-            <li class="footer-li">
-                <a href="https://twitter.com/thephpf" class="group-link footer-link">
-                    Twitter
-                </a>
-            </li>
-        </ul>
+                <li class="footer-li">
+                    <a href="https://twitter.com/thephpf"
+                       class="group-link footer-link text-white/30 hover:text-slate-900 no-underline hover:no-underline border-b-0 border-transparent">
+                        Twitter
+                    </a>
+                </li>
+            </ul>
 
-        <p class="font-normal flex items-center footer-link">
-            &copy; The PHP Foundation
-        </p>
-    </footer>
+            <p class="font-normal text-center sm:flex sm:items-center footer-link text-white/30 hover:text-slate-900 no-underline hover:no-underline border-b-0 border-transparent">
+                &copy; The PHP Foundation
+            </p>
+        </footer>
 
-        
-        </body>
+        <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const anchors = new AnchorJS()
+    anchors.add()
+
+    for (const element of document.getElementsByClassName('anchorjs-link')) {
+      element.addEventListener('click', function () {
+        navigator.clipboard.writeText(window.location.origin + window.location.pathname + element.getAttribute('href'))
+      })
+    }
+  })
+</script>
+
+                </body>
 </html>
