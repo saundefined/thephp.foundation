@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title><![CDATA[The PHP Foundation]]></title>
-    <link href="https://thephp.foundation/atom.xml" rel="self"/>
-    <link href="https://thephp.foundation/"/>
-    <updated>2022-07-12T05:21:13+00:00</updated>
-    <id>https://thephp.foundation/</id>
+    <link href="https://saundefined.github.io/thephp.foundation/atom.xml" rel="self"/>
+    <link href="https://saundefined.github.io/thephp.foundation/"/>
+    <updated>2022-07-12T05:23:41+00:00</updated>
+    <id>https://saundefined.github.io/thephp.foundation/</id>
         <generator uri="http://sculpin.io/">Sculpin</generator>
             <entry>
             <title type="html"><![CDATA[PHP Foundation Update, June 2022]]></title>
-            <link href="https://thephp.foundation/blog/2022/07/04/php-foundation-update-june-2022/"/>
+            <link href="https://saundefined.github.io/thephp.foundation/blog/2022/07/04/php-foundation-update-june-2022/"/>
             <updated>2022-07-04T00:00:00+00:00</updated>
-            <id>https://thephp.foundation/blog/2022/07/04/php-foundation-update-june-2022/</id>
+            <id>https://saundefined.github.io/thephp.foundation/blog/2022/07/04/php-foundation-update-june-2022/</id>
             <content type="html"><![CDATA[<p><code>&lt;?php echo 'Hello world!';</code></p>
 
 <p>This month PHP foundation staff continues to work on the PHP core and the development of the initiative as a whole. Read on to learn more about what developers have accomplished, new sponsors, and other than financial ways to contribute to the foundation.</p>
@@ -88,9 +88,9 @@
         </entry>
             <entry>
             <title type="html"><![CDATA[PHP Core Roundup #3]]></title>
-            <link href="https://thephp.foundation/blog/2022/06/30/php-core-roundup-3/"/>
+            <link href="https://saundefined.github.io/thephp.foundation/blog/2022/06/30/php-core-roundup-3/"/>
             <updated>2022-06-30T00:00:00+00:00</updated>
-            <id>https://thephp.foundation/blog/2022/06/30/php-core-roundup-3/</id>
+            <id>https://saundefined.github.io/thephp.foundation/blog/2022/06/30/php-core-roundup-3/</id>
             <content type="html"><![CDATA[<p>Welcome back to the <em>PHP Core Roundup</em> series, where we make regular updates on the improvements made to PHP by the <em>PHP Foundation</em> and other contributors.</p>
 
 <p>In this edition, we have news about PHP 8.2 that is only three weeks away from its feature-freeze, and several improvements made by the PHP Foundation team and contributors.</p>
@@ -336,9 +336,9 @@ class C {}
         </entry>
             <entry>
             <title type="html"><![CDATA[PHP Foundation Update, May 2022]]></title>
-            <link href="https://thephp.foundation/blog/2022/06/01/php-foundation-update-may-2022/"/>
+            <link href="https://saundefined.github.io/thephp.foundation/blog/2022/06/01/php-foundation-update-may-2022/"/>
             <updated>2022-06-01T00:00:00+00:00</updated>
-            <id>https://thephp.foundation/blog/2022/06/01/php-foundation-update-may-2022/</id>
+            <id>https://saundefined.github.io/thephp.foundation/blog/2022/06/01/php-foundation-update-may-2022/</id>
             <content type="html"><![CDATA[<p><code>&lt;?php echo 'Hello world!';</code></p>
 
 <p>This time our regular update is short. Check the <a href="https://thephp.foundation/blog/2022/05/30/php-core-roundup-2/">PHP Core Roundup</a> series for a detailed development log.</p>
@@ -378,9 +378,9 @@ class C {}
         </entry>
             <entry>
             <title type="html"><![CDATA[PHP Core Roundup #2]]></title>
-            <link href="https://thephp.foundation/blog/2022/05/30/php-core-roundup-2/"/>
+            <link href="https://saundefined.github.io/thephp.foundation/blog/2022/05/30/php-core-roundup-2/"/>
             <updated>2022-05-30T00:00:00+00:00</updated>
-            <id>https://thephp.foundation/blog/2022/05/30/php-core-roundup-2/</id>
+            <id>https://saundefined.github.io/thephp.foundation/blog/2022/05/30/php-core-roundup-2/</id>
             <content type="html"><![CDATA[<p>Welcome back to round #2 of <em>PHP Core Roundup</em>, where we’ll make regular updates on the improvements made to PHP by the PHP Foundation and other contributors. In this second one in the series, we have news about the upcoming PHP 8.2 release, some new RFCs accepted, voted, and being discussed, and some further improvements to PHP made in the past few weeks.</p>
 
 <p>You don’t necessarily have to be a PHP Foundation backer to follow the PHP Roundup. We’ll be publishing the posts on our website, and you can subscribe to a newsletter:</p>
@@ -527,9 +527,9 @@ class C {}
         </entry>
             <entry>
             <title type="html"><![CDATA[Interview with Core Developers]]></title>
-            <link href="https://thephp.foundation/blog/2022/05/06/interview-with-core-developers/"/>
+            <link href="https://saundefined.github.io/thephp.foundation/blog/2022/05/06/interview-with-core-developers/"/>
             <updated>2022-05-06T00:00:00+00:00</updated>
-            <id>https://thephp.foundation/blog/2022/05/06/interview-with-core-developers/</id>
+            <id>https://saundefined.github.io/thephp.foundation/blog/2022/05/06/interview-with-core-developers/</id>
             <content type="html"><![CDATA[<p>The initial group of sponsored developers has now been "at it" for a month, and we thought that you might be interested in who they are and what they work on. I got the opportunity to (virtually) sit down with Derick Rethans, George Peter Banyard, Ilija Tovilo, Jakub Zelenka, Máté Kocsis, and Arnaud Le Blanc for an interview.</p>
 
 <h4 id="%2A%2Asebastian%3A%2A%2A-let%27s-start-with-a-round-of-introductions.-who-are-you%3F"><strong>Sebastian:</strong> Let's start with a round of introductions. Who are you?</h4>
@@ -593,9 +593,9 @@ class C {}
         </entry>
             <entry>
             <title type="html"><![CDATA[PHP Foundation Update, April 2022]]></title>
-            <link href="https://thephp.foundation/blog/2022/05/02/the-php-foundation-update-april-2022/"/>
+            <link href="https://saundefined.github.io/thephp.foundation/blog/2022/05/02/the-php-foundation-update-april-2022/"/>
             <updated>2022-05-02T00:00:00+00:00</updated>
-            <id>https://thephp.foundation/blog/2022/05/02/the-php-foundation-update-april-2022/</id>
+            <id>https://saundefined.github.io/thephp.foundation/blog/2022/05/02/the-php-foundation-update-april-2022/</id>
             <content type="html"><![CDATA[<p><code>&lt;?php echo 'Hello world!';</code></p>
 
 <p>We’re off by two but still happy to bring you an update from the foundation.</p>
@@ -655,9 +655,9 @@ class C {}
         </entry>
             <entry>
             <title type="html"><![CDATA[PHP Roundup #1]]></title>
-            <link href="https://thephp.foundation/blog/2022/04/28/php-roundup-1/"/>
+            <link href="https://saundefined.github.io/thephp.foundation/blog/2022/04/28/php-roundup-1/"/>
             <updated>2022-04-28T00:00:00+00:00</updated>
-            <id>https://thephp.foundation/blog/2022/04/28/php-roundup-1/</id>
+            <id>https://saundefined.github.io/thephp.foundation/blog/2022/04/28/php-roundup-1/</id>
             <content type="html"><![CDATA[<p>Welcome to the first <em>PHP Roundup</em>, where we’ll make regular updates on the improvements made to PHP by the <em>PHP Foundation</em> and other contributors. PHP Roundup is prepared by Ayesh Karunaratne from <strong><a href="https://php.watch">PHP.Watch</a></strong>, a source for PHP news and articles on upcoming changes.</p>
 
 <p>In this series, we highlight some of the interesting and major improvements made to the PHP language. Traditionally, the PHP team releases a new minor version of the interpreter towards the end of each year, but the changes and improvements are discussed and implemented throughout the year.</p>
@@ -780,9 +780,9 @@ class C {}
         </entry>
             <entry>
             <title type="html"><![CDATA[The PHP Foundation Update, March 2022]]></title>
-            <link href="https://thephp.foundation/blog/2022/03/31/the-php-foundation-update-march-2022/"/>
+            <link href="https://saundefined.github.io/thephp.foundation/blog/2022/03/31/the-php-foundation-update-march-2022/"/>
             <updated>2022-03-31T00:00:00+00:00</updated>
-            <id>https://thephp.foundation/blog/2022/03/31/the-php-foundation-update-march-2022/</id>
+            <id>https://saundefined.github.io/thephp.foundation/blog/2022/03/31/the-php-foundation-update-march-2022/</id>
             <content type="html"><![CDATA[<p><code>&lt;?php echo 'Hello world!';</code></p>
 
 <p>We promised to publish monthly updates, but something everything went wrong in February.</p>
@@ -873,9 +873,9 @@ class C {}
         </entry>
             <entry>
             <title type="html"><![CDATA[The PHP Foundation Update, January 2022]]></title>
-            <link href="https://thephp.foundation/blog/2022/01/21/the-php-foundation-update-january-2022/"/>
+            <link href="https://saundefined.github.io/thephp.foundation/blog/2022/01/21/the-php-foundation-update-january-2022/"/>
             <updated>2022-01-21T00:00:00+00:00</updated>
-            <id>https://thephp.foundation/blog/2022/01/21/the-php-foundation-update-january-2022/</id>
+            <id>https://saundefined.github.io/thephp.foundation/blog/2022/01/21/the-php-foundation-update-january-2022/</id>
             <content type="html"><![CDATA[<p><code>&lt;?php echo 'Hello world!';</code></p>
 
 <p>In November, the PHP Foundation was launched publicly and we’ve seen enormous support from the community.
