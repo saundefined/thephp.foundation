@@ -1,5 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[The PHP Foundation]]></title><description><![CDATA[Supporting, Advancing, and Developing the PHP Language]]></description><updated>2022-07-18T07:54:41+00:00</updated><entry><title type="html"><![CDATA[PHP Core Roundup #3]]></title><content type="html"><![CDATA[<p>Welcome back to the <em>PHP Core Roundup</em> series, where we make regular updates on the improvements made to PHP by the <em>PHP Foundation</em> and other contributors.</p>
+<feed xmlns="http://www.w3.org/2005/Atom"><title><![CDATA[The PHP Foundation]]></title><description><![CDATA[Supporting, Advancing, and Developing the PHP Language]]></description><updated>2022-07-28T09:27:09+00:00</updated><entry><title type="html"><![CDATA[PHP Core Roundup #2]]></title><content type="html"><![CDATA[<p>Welcome back to round #2 of <em>PHP Core Roundup</em>, where we’ll make regular updates on the improvements made to PHP by the PHP Foundation and other contributors. In this second one in the series, we have news about the upcoming PHP 8.2 release, some new RFCs accepted, voted, and being discussed, and some further improvements to PHP made in the past few weeks.</p>
+
+<p>You don’t necessarily have to be a PHP Foundation backer to follow the PHP Roundup. We’ll be publishing the posts on our website, and you can subscribe to a newsletter:</p>
+
+<div class="px-4 pt-3 pb-10 mb-6 border-b border-t -mx-4 border-gray-200">
+    <div class="max-w-xl mx-auto">
+        <h2 class="text-xl text-left inline-block font-semibold text-gray-800 mb-1">Subscribe to PHP Foundation Updates</h2>
+        <form method="POST" action="https://php-foundation-mailcoach.com/subscribe/9be4e2bd-f9d8-475c-b00e-2dcc4cf90056" class="mt-2">
+            <div class="flex items-center">
+                <input placeholder="Your email address" type="email" class="w-full px-2 py-4 mr-2  bg-gray-100 shadow-inner rounded-md border border-gray-400 focus:outline-none" name="email" required>
+                <button class="bg-[#7f52ff] text-gray-200 px-5 py-2 rounded shadow " style="margin-left: -7.8rem;">Sign Up</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<p>The PHP Foundation currently supports six part-time PHP contributors who work on both maintenance and new features for PHP. Maintenance is not limited to fixing bugs, but also includes work to reduce technical debt, making life easier for everyone working on PHP. The contributors funded by the PHP Foundation collaborate with other contributors on code, documentation, and discussions.</p>
+
+<h2 id="php-8.2-release-managers">PHP 8.2 Release Managers</h2>
+
+<p>For each major version of PHP (such as PHP 7.4, 8.0, 8.1, and 8.2), PHP core developers vote and elect one or two release managers along with a veteran PHP core developer who has been a release manager before.</p>
+
+<p>PHP Release managers are responsible for tagging and creating PHP releases throughout the lifecycle of that PHP version, including the alpha/beta/RC releases, and security releases as well as regular patch versions. Lasting for about three and half years, the release managers have the final say last-minute RFCs as well.</p>
+
+<p>For the upcoming PHP 8.2, we had <a href="https://wiki.php.net/todo/php82">7 candidates</a>, with Ben Ramsey, one of the PHP 8.1 release managers stepping in as the veteran release manager. After a poll that ended on May 18, Sergey Panteleev and Pierrick Charron were elected as rookie release managers.</p>
+
+<p>Congratulations Sergey, Pierrick, and Ben on being PHP 8.2 release managers!</p>
+
+<h2 id="rfc-updates">RFC Updates</h2>
+
+<p>Every major change to PHP is discussed and implemented with the consensus of the PHP community. Each RFC proposes a set of changes, and the PHP Internals community holds a vote that lasts two weeks by default.</p>
+
+<p>Things marked with 💜 are done by the PHP Foundation team.</p>
+
+<ul>
+<li><p><strong>Implemented: <a href="https://wiki.php.net/rfc/deprecate_dollar_brace_string_interpolation">Deprecate ${} string interpolation</a> 💜</strong></p>
+
+<p>RFC by Ilija Tovilo was accepted with 31:1 votes in favor, and is now implemented in PHP core. This RFC proposes to deprecate string interpolation with <code>${var}</code> and <code>${expr}</code> patterns with <code>{$var}</code> and <code>{${expr}}</code> patterns.</p>
+
+<p>On top 1,000 most downloaded packages as per Packagist data, over 40 packages contained at least one occurrence of this now-deprecated pattern. Fixes are being made to the libraries, you can help out by testing your libraries and submitting pull-requests to the relevant repositories.</p>
+
+<p>This RFC is likely to be followed up with another RFC vote to decide whether the deprecated string interpolation patterns should throw an error, or silently ignored in PHP 9.0</p>
+
+<p>Learn more about this RFC on <a href="https://php.watch/versions/8.2/$%7Bvar%7D-string-interpolation-deprecated">PHP.Watch</a>.</p></li>
+<li><p><strong>Implemented: <a href="https://wiki.php.net/rfc/readonly_classes">Readonly Classes</a> 💜</strong></p>
+
+<p>Máté Kocsis follows up PHP 8.1 readonly properties feature with support for marking the entire class as readonly in this new RFC. In PHP 8.2, all properties (must be typed) of the class will be implicitly readonly if the class is declared as readonly.</p>
+
+<p>Learn more about this RFC on <a href="https://php.watch/versions/8.2/readonly-classes">PHP.Watch</a>.</p></li>
+<li><p><strong>Accepted: <a href="https://wiki.php.net/rfc/mysqli_execute_query">MySQLi Execute Query</a></strong></p>
+
+<p>RFC by Kamil Tekiela and Craig Francis was accepted unanimously with 24 votes. This RFC proposes to add a new <code>mysqli_execute_query</code> function to the MySQLi extension that greatly simplifies the multiple function calls it required to prepare, bind parameters, execute, and retrieve data with mysqli_prepare/execute/stement_get_result functions.</p>
+
+<p>Learn more about this RFC on <a href="https://php.watch/versions/8.2/mysqli_execute_query">PHP.Watch</a>.</p></li>
+<li><p><strong>Accepted: <a href="https://wiki.php.net/rfc/undefined_property_error_promotion">Undefined Property Error Promotion</a></strong></p>
+
+<p>RFC by Mark Randall proposes to throw an error on undefined class property access, similar to the now accepted changes with undefined variables. Notably, PHP 8.2 already emits deprecation notices on dynamic property creation (<a href="https://php.watch/versions/8.2/dynamic-properties-deprecated#exempt">with a few exceptions</a>).</p></li>
+<li><p><strong>Under Discussion: <a href="https://wiki.php.net/rfc/partially-supported-callables-expand-deprecation-notices">Expand deprecation notice scope for partially supported callables</a></strong></p>
+
+<p>Juliette Reinders Folmer follows up on the <a href="https://wiki.php.net/rfc/deprecate_partially_supported_callables">Deprecate partially supported callables RFC</a> (implemented in PHP 8.2) to widen the scope of the deprecation to include is_callable function and when type verification is executed on the callable type.</p>
+
+<p>Learn more about this RFC on <a href="https://phpinternals.news/101">PHP Internals News Podcast</a> hosted by Derick Rethans.</p></li>
+<li><p><strong>Under Discussion: <a href="https://wiki.php.net/rfc/stricter_implicit_boolean_coercions">Stricter implicit boolean coercions</a></strong></p>
+
+<p>RFC by Andreas Leathley is currently under discussion, which discovers ways how various types are coerced with boolean values. A <a href="https://externals.io/message/117732">lengthy discussion</a> is underway.</p></li>
+<li><p><strong>Under Discussion: <a href="https://wiki.php.net/rfc/fetch_property_in_const_expressions">Fetching properties in constant expressions</a> 💜</strong></p>
+
+<p>RFC by Ilija Tovilo proposes adding support for fetching properties in constant expressions using the <code>-&gt;</code> operator. This will make it possible to fetch the name and value of enums in constant expressions.</p></li>
+</ul>
+
+<h2 id="merged-prs-and-commits">Merged PRs and Commits</h2>
+
+<p>Some of the minor changes made to PHP are first made as a pull request to the <a href="http://github.com/php/php-src">PHP GitHub project</a>, and if deemed acceptable by PHP core maintainers, they are merged without going through a formal RFC process. We have automatic tests in place to flag PRs that break existing functionality. The majority of the minor changes from the community are made through PRs.</p>
+
+<ul>
+<li>New: Curl extension support for <code>CURLOPT_MAXFILESIZE_LARGE</code> and <code>CURLOPT_XFERINFOFUNCTION</code> options in PR <a href="https://github.com/php/php-src/pull/7823">#7823</a> and <a href="https://github.com/php/php-src/pull/8557">#8557</a> by David Carlier.</li>
+<li>New: Add <code>ReflectionMethod::hasPrototype()</code> in PR <a href="https://github.com/php/php-src/pull/8487">#8487</a> by Ollie Read.</li>
+<li>New: Add <code>ReflectionFunction::isAnonymous()</code> in PR <a href="https://github.com/php/php-src/pull/8499">#8499</a> by Nicolas Grekas.</li>
+<li>New: Socket extension support for <code>TCP_NOTSENT_LOWAT</code> and <code>SO_MEMINFO</code> options in PR <a href="https://github.com/php/php-src/pull/8559">#8559</a> and commit <a href="https://github.com/php/php-src/commit/2410e378c1729df267b0be82e9c7ab8a47b9a6a6">2410e378</a> by David Carlier.</li>
+<li>New: <code>idate()</code> now accepts format specifiers "N" (ISO Day-of-Week) and "o" (ISO Year) in commit <a href="https://github.com/php/php-src/commit/12702a20474635605cd7f08a9d0e1acac3a5f078">12702a20</a> by Pavel Djundik.</li>
+<li>Improved: Tidy extension’s tidy class properties are now typed, and tidyNode properties are declared readonly. PR <a href="https://github.com/php/php-src/pull/8515">#8515</a> by Máté Kocsis 💜.</li>
+<li>Improved: It is now possible to declare constants in stubs. This change will make it easier to keep the manual always up-to-date as well as static analyzers to get type information about constants. PR <a href="https://github.com/php/php-src/pull/7434">#7434</a> by Máté Kocsis 💜.</li>
+<li>Changed: Build <code>ext/zip</code> as shared library by default on Windows in PR <a href="https://github.com/php/php-src/pull/8549">#8549</a> by Christoph M. Becker.</li>
+<li>Fixed: Bug <a href="https://github.com/php/php-src/issues/8548">#8548</a>  <code>stream_wrapper_unregister()</code> memory leak in PR <a href="https://github.com/php/php-src/pull/8587">#8587</a> by Ilija Tovilo 💜.</li>
+<li>Fixed: <code>ini_get()</code> could be optimized-out by the optimizer in PR <a href="https://github.com/php/php-src/pull/8507">#8507</a> by Arnaud Le Blanc 💜.</li>
+<li>Fixed: Crash while unregistering <code>dl()’</code>-ed extension in ZTS in PR <a href="https://github.com/php/php-src/pull/8435">#8435</a> by Arnaud Le Blanc 💜.</li>
+<li>Fixed: Add JIT guards for <code>INIT_METHOD_CALL</code> when the method may be modified PR <a href="https://github.com/php/php-src/pull/8600">#8600</a> by Arnaud Le Blanc 💜.</li>
+<li>Fixed: Datetime format string to follow POSIX spec in <code>ftp_mdtm</code> in PR <a href="https://github.com/php/php-src/pull/8259">#8259</a> by Jihwan Kim.</li>
+<li>Fixed: <code>parse_url()</code> can not recognize port without scheme in PR <a href="https://github.com/php/php-src/pull/7844">#7844</a> by @pandaLIU.</li>
+<li>Fixed bug #72185: php-fpm writes empty fcgi record causing nginx 502 by Jakub Zelenka and @loveharmful 💜.</li>
+<li>Fixed: Bug #79589: ssl3_read_n:unexpected eof while reading by Jakub Zelenka 💜.</li>
+<li>Fixed: Memory leak in <code>Enum::from</code>/<code>tryFrom</code> when type coercion occurs in internal enums in PR <a href="https://github.com/php/php-src/pull/8633">#8633</a> by Ilija Tovilo 💜.</li>
+<li>Improved: Add internal C API for fetching backed enums by value in PR <a href="https://github.com/php/php-src/pull/8518">#8518</a> by Ilija Tovilo</li>
+<li>Fixed: Several bug fixes in Date extension by Derick Rethans 💜.
+
+<ul>
+<li>Bug <a href="https://bugs.php.net/bug.php?id=51987">#51987</a> DateTime fails to parse an ISO 8601 ordinal date (extended format) in PR #8589.</li>
+<li><code>DateInterval::createFromDateString</code> does not throw if non-relative items are present in PR <a href="https://github.com/php/php-src/issues/8458">#8458</a>.</li>
+<li>Bug <a href="https://bugs.php.net/bug.php?id=72963">#72963</a> Null-byte injection in <code>DateTime::createFromFormat</code> and related functions.</li>
+<li>Bug <a href="https://github.com/php/php-src/issues/8471">#GH-8471</a> Segmentation fault when converting immutable and mutable <code>DateTime</code> instances created using reflection in PR <a href="https://github.com/php/php-src/pull/8497">#8497</a>.</li>
+<li>Bug <a href="https://bugs.php.net/bug.php?id=68549">#68549</a> Timezones and offsets are not properly used when working with dates in PR <a href="https://github.com/php/php-src/pull/8589">#8589</a>.</li>
+<li>Updated to timelib 2021.12 in PR <a href="https://github.com/php/php-src/pull/8589">#8589</a> by Derick Rethans 💜. Also fixes bug <a href="https://bugs.php.net/bug.php?id=51934">#51934</a>, <a href="https://github.com/php/php-src/issues/7758">GH-7758</a>, <a href="https://bugs.php.net/bug.php?id=68549">#68549</a>, <a href="https://bugs.php.net/bug.php?id=66019">#66019</a>, and <a href="https://bugs.php.net/bug.php?id=81565">#81565</a>.</li>
+<li>Bug <a href="https://bugs.php.net/bug.php?id=52015">#52015</a> Allow including end date in <code>DatePeriod</code> iterations in PR <a href="https://github.com/php/php-src/pull/8550">#8550</a>.</li>
+<li>DatePeriod properties are also going to be properly declared as readonly soon (PR <a href="https://github.com/php/php-src/pull/8534">#8534</a>).</li>
+<li>Bug <a href="https://bugs.php.net/bug.php?id=74671">#74671</a> DST timezone abbreviation has incorrect offset in PR <a href="https://github.com/php/php-src/pull/8595">#8595</a>.</li>
+<li>Bug <a href="https://bugs.php.net/bug.php?id=78139">#78139</a>  <code>timezone_open</code> accepts invalid timezone string argument in PR <a href="https://github.com/php/php-src/pull/8595">#8595</a>.</li>
+</ul></li>
+</ul>
+
+<p>Apart from the highlighted changes above, there have been more improvements and fixes from Alex Dowad, Nikita Popov, Dmitry Stogov, and more contributors.</p>
+
+<h2 id="mailing-list-discussions">Mailing List Discussions</h2>
+
+<ul>
+<li><a href="https://externals.io/message/117678">The future of objects and operators</a> started by Jordan LeDoux as a follow-up to previously declined <a href="https://wiki.php.net/rfc/user_defined_operator_overloads">Operator overloading RFC</a>.</li>
+<li><a href="https://externals.io/message/117501">NULL Coercion Consistency</a> started by Craig Francis.</li>
+<li><a href="https://externals.io/message/117732">Stricter implicit boolean coercions</a> started by Andreas Leathley.</li>
+<li><a href="https://github.com/php/php-src/issues/8420">Body-less methods</a> started by Aleksei Gagarin.</li>
+</ul>
+
+<h2 id="other-news">Other News</h2>
+
+<ul>
+<li><a href="https://www.npopov.com/2022/05/22/The-opcache-optimizer.html">The opcache optimizer</a> – blog post by Nikita Popov.</li>
+<li><a href="https://blog.jetbrains.com/phpstorm/2022/05/php-annotated-may-2022/">PHP Annotated</a> – for more news and links from the userland PHP community.</li>
+</ul>
+
+<h2 id="support-php-foundation">Support PHP Foundation</h2>
+
+<p>At PHP Foundation, we support, promote, and advance the PHP language. We financially support six part-time PHP core developers to contribute to the PHP project. You can help support PHP Foundation at <a href="https://opencollective.com/phpfoundation">OpenCollective</a>.</p>
+
+<p>A big thanks to all our sponsors — PHP Foundation is all of us!</p>
+
+<p>A special mention goes to <a href="https://mailcoach.app/">mailcoach.app</a> for providing us with a platform for the newsletter.</p>
+
+<p>Follow us on Twitter <a href="https://twitter.com/thephpf">@ThePHPF</a> to get the latest updates from the Foundation.</p>
+
+<p>💜️ 🐘</p>
+
+<blockquote>
+  <p>PHP Roundup is prepared by Ayesh Karunaratne from <strong><a href="https://php.watch">PHP.Watch</a></strong>, a source for PHP News, Articles, Upcoming Changes, and more.</p>
+</blockquote>
+]]></content><link href="https://thephp.foundation/blog/2022/05/30/php-core-roundup-2/"/><id>https://thephp.foundation/blog/2022/05/30/php-core-roundup-2/</id><pubDate>Mon, 30 May 2022 00:00:00 +0000</pubDate><author><name>Ayesh Karunaratne</name><uri>https://aye.sh</uri></author></entry><entry><title type="html"><![CDATA[PHP Roundup #1]]></title><content type="html"><![CDATA[<p>Welcome to the first <em>PHP Roundup</em>, where we’ll make regular updates on the improvements made to PHP by the <em>PHP Foundation</em> and other contributors. PHP Roundup is prepared by Ayesh Karunaratne from <strong><a href="https://php.watch">PHP.Watch</a></strong>, a source for PHP news and articles on upcoming changes.</p>
+
+<p>In this series, we highlight some of the interesting and major improvements made to the PHP language. Traditionally, the PHP team releases a new minor version of the interpreter towards the end of each year, but the changes and improvements are discussed and implemented throughout the year.</p>
+
+<p>You don’t necessarily have to be a PHP Foundation backer to follow the PHP Roundup. We’ll be publishing the posts on our website, and you can subscribe to a newsletter:</p>
+
+<div class="px-4 pt-3 pb-10 mb-6 border-b border-t -mx-4 border-gray-200">
+    <div class="max-w-xl mx-auto">
+        <h2 class="text-xl text-left inline-block font-semibold text-gray-800 mb-1">Subscribe to PHP Foundation Updates</h2>
+        <form method="POST" action="https://php-foundation-mailcoach.com/subscribe/9be4e2bd-f9d8-475c-b00e-2dcc4cf90056" class="mt-2">
+            <div class="flex items-center">
+                <input placeholder="Your email address" type="email" class="w-full px-2 py-4 mr-2  bg-gray-100 shadow-inner rounded-md border border-gray-400 focus:outline-none" name="email" required>
+                <button class="bg-[#7f52ff] text-gray-200 px-5 py-2 rounded shadow " style="margin-left: -7.8rem;">Sign Up</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<p>The PHP Foundation currently supports six part-time PHP contributors who work on both maintenance and new features for PHP. Maintenance is not limited to fixing bugs, but also includes work to reduce technical debt, making life easier for everyone working on PHP. The contributors funded by the PHP Foundation collaborate with other contributors on code, documentation, and discussions.</p>
+
+<p>Things marked with 💜 are done by the PHP Foundation team.</p>
+
+<p>Let’s get straight to the updates.</p>
+
+<h2 id="rfc-updates">RFC Updates</h2>
+
+<p>Every major change to PHP is discussed and implemented with the consensus of the PHP community. Each RFC proposes a set of changes, and the PHP Internals community holds a vote that lasts two weeks by default.</p>
+
+<ul>
+<li><p><strong>Accepted: <a href="https://wiki.php.net/rfc/null-false-standalone-types">Allow null and false as stand-alone types</a> 💜</strong></p>
+
+<p>RFC by George Peter Banyard was accepted unanimously with all 38 votes in favor and is now merged into PHP.</p>
+
+<p>Prior to this change, <code>null</code>and <code>false</code>could only be used as part of a Union Type, but not as stand-alone types. This change further improves PHP’s type system to be more expressive and defensive. See the <code>true</code> type RFC below that proposes adding <code>true</code>as a type too.</p>
+
+<p>Learn more about this RFC from the <a href="https://phpinternals.news/99">PHP Internals News podcast</a> hosted by Derick Rethans.</p></li>
+<li><p><strong>Implemented: <a href="https://wiki.php.net/rfc/redact_parameters_in_back_traces">Redacting parameters in back traces</a></strong></p>
+
+<p>RFC by Tim Düsterhus, approved with 24:1 votes in favor, is now implemented in PHP core.</p>
+
+<p>This RFC proposed adding a <code>#[SensitiveParameter]</code> attribute that redacts the parameter's actual value when it is spewed out in stack traces and <code>var_dump</code>output. The attribute can be used to prevent leaking sensitive information in debugging logs.</p>
+
+<p>Learn more about this RFC from the <a href="https://phpinternals.news/97">PHP Internals News podcast</a> hosted by Derick Rethans.</p></li>
+<li><p><strong>Discussion: <a href="https://wiki.php.net/rfc/true-type">Add true type</a> 💜</strong></p>
+
+<p>RFC by George Peter Banyard is currently under discussion, to add true as a type to PHP. In PHP 8.0 Union Types, we added <code>false</code> as one of the possible members of Union Types, but left out <code>true</code>. This RFC proposes to complete it by adding <code>true</code> as a type as well.</p></li>
+<li><p><strong>Accepted: <a href="https://wiki.php.net/rfc/undefined_variable_error_promotion">Undefined Variable Error Promotion</a></strong></p>
+
+<p>RFC by Mark Randall accepted with 33:8 votes in favor.</p>
+
+<p>This proposes to convert the current behavior of PHP raising a warning for accessing an undefined variable (PHP 8.0+) to throw an Error exception instead in PHP 9.0.</p></li>
+<li><p><strong>Voting: <a href="https://wiki.php.net/rfc/undefined_property_error_promotion">Undefined Property Error Promotion</a></strong></p>
+
+<p>Another RFC by Mark Randall proposes to throw an error on undefined class property access, similar to the now accepted changes with undefined variables. Notably, PHP 8.2 already emits deprecation notices on dynamic property creation (<a href="https://php.watch/versions/8.2/dynamic-properties-deprecated#exempt">with a few exceptions</a>).</p></li>
+<li><p><strong>Voting: <a href="https://wiki.php.net/rfc/readonly_classes">Readonly classes</a> 💜</strong></p>
+
+<p>RFC by Máté Kocsis proposes to add support for readonly classes. In such a class, all properties are <code>readonly</code>and dynamic properties are forbidden. Voting is scheduled to start on April 27th.</p></li>
+<li><p><strong>Accepted: <a href="https://wiki.php.net/rfc/deprecate_dollar_brace_string_interpolation">Deprecate ${} string interpolation</a> 💜</strong></p>
+
+<p>RFC by Ilija Tovilo accepted with 31:1 votes in favor.</p>
+
+<p>This RFC proposes to deprecate <code>"${foo}"</code> and "<code>${(foo)}</code>" string interpolation patterns. It does <em>not</em> deprecate the standard "<code>{$foo}</code>" pattern.</p></li>
+<li><p><strong>Accepted: <a href="https://wiki.php.net/rfc/remove_utf8_decode_and_utf8_encode">Deprecate and Remove utf8_encode and utf8_decode</a></strong></p>
+
+<p>Learn more about this RFC from the <a href="https://phpinternals.news/98">PHP Internals News podcast</a> hosted by Derick Rethans.</p></li>
+</ul>
+
+<h2 id="merged-prs-and-commits">Merged PRs and Commits</h2>
+
+<p>Some of the minor changes made to PHP are first made as a pull request to the <a href="github.com/php/php-src">PHP GitHub project</a>, and if deemed acceptable by PHP core maintainers, they are merged without going through a formal RFC process. We have automatic tests in place to flag PRs that break existing functionality. The majority of the minor changes from the community are made through PRs.</p>
+
+<ul>
+<li>New: <a href="https://github.com/php/php-src/pull/7823">Introduce CURLOPT_XFERINFOFUNCTION</a> by <a href="https://github.com/devnexen">David CARLIER</a>.</li>
+<li>Fixed: <a href="https://github.com/php/php-src/issues/8133">Constants in Enum classes causes php-fpm worker to segfault</a> by Ilija Tovilo. 💜</li>
+<li>Fixed: <a href="https://github.com/php/php-src/issues/8273">SplFileObject: key() returns wrong value</a> by George Peter Banyard. <strong>💜</strong></li>
+<li>Fixed: Bug #<a href="https://bugs.php.net/bug.php?id=76003">76003</a> <a href="https://github.com/php/php-src/commit/33bb201b3eddbda0cc93c9cd1cb9adb4c77d0df2">FPM /status reports wrong number of active processes</a> by Jakub Zelenka <strong>💜</strong></li>
+<li>Fixed: Bug #<a href="https://github.com/php/php-src/commit/d8612fb6b7496a4f17e8250037a00b26623c1c77">77023 PHP-FPM cannot shutdown processes</a> by Jakub Zelenka <strong>💜</strong></li>
+<li>Reviewed and merged various fixes and improvements to FPM by Jakub Zelenka: <strong>💜</strong>
+
+<ul>
+<li><a href="https://github.com/php/php-src/commit/2874e5fa052d54affd31ed5eaf3e0d53c9116c93">Emitting error for invalid listen port</a> (implemented by David Carlier)</li>
+<li><a href="https://github.com/php/php-src/commit/7bb2a9ff38b739d2143134b6ce0d9cc3dd9b78fe">SELinux dumpable</a> (implemented by David Carlier)</li>
+<li><a href="https://github.com/php/php-src/commit/2f0918c638cbba0f5d36b9b2f3d0aa8cf95651c9">Clang warning in socket cleanup</a> (implemented by David Carlier)</li>
+<li><a href="https://github.com/php/php-src/commit/7be195caa7589560d5e1a019e389850fdb5c8a1e">Listening queue MacOS support</a> (implemented by David Carlier)</li>
+<li><a href="https://github.com/php/php-src/commit/1e562683cb995b9903f4d24ba9eb5bb89ae3fbfb">New default for listen backlog on Linux</a> (implemented by Cristian Rodríguez)</li>
+<li><a href="https://github.com/php/php-src/commit/ff90d42b8bc292bd7bfc532e29e5cdff242ee3e1">Kqueue typo in remove callback type</a> (implemented by David Carlier)</li>
+</ul></li>
+<li>Fixed: Various (<a href="https://github.com/php/php-src/issues/7752">1</a>, <a href="https://github.com/php/php-src/issues/8101">2</a>, <a href="https://bugs.php.net/bug.php?id=81660">3</a>) bugs related to DateTime support, as well as reimplementing serialization support for all classes, by Derick Rethans 💜</li>
+<li>Improved: Migrated most of the CI setup from Azure Pipelines to GitHub Actions by Ilija Tovilo 💜</li>
+<li>Fixed: <a href="https://github.com/php/php-src/issues/8310">Registry settings are no longer recognized</a> by Christoph M. Becker, reported by Vladimir S.</li>
+<li>Several engine improvements by Dmitry Stogov and Nikita Popov.</li>
+</ul>
+
+<p>Apart from the highlighted changes above, there have been more improvements and fixes from @divinity76, Marco Pivetta, Arnaud Le Blanc, Alex Dowad, and more.</p>
+
+<h2 id="mailing-list-discussions">Mailing List Discussions</h2>
+
+<ul>
+<li><a href="https://externals.io/message/117577">Canonicalize "iterable" into "array|Traversable" and Reflection</a>, started by George Peter Banyard. 💜</li>
+<li><a href="https://externals.io/message/117486">MySQLi Execute Query RFC</a>, started by Craig Francis.</li>
+<li><a href="https://externals.io/message/117501">NULL Coercion Consistency</a>, also started by Craig Francis.</li>
+</ul>
+
+<h2 id="support-php-foundation">Support PHP Foundation</h2>
+
+<p>At PHP Foundation, we support, promote, and advance the PHP language. We financially support six part-time PHP core developers to contribute to the PHP project. You can help support PHP Foundation at <a href="https://opencollective.com/phpfoundation">OpenCollective</a>.</p>
+
+<p>A big thanks to all our sponsors — PHP Foundation is all of us!</p>
+
+<p>A special mention goes to <a href="https://mailcoach.app/">mailcoach.app</a> for providing us with a platform for the newsletter.</p>
+
+<p>Follow us on Twitter <a href="https://twitter.com/thephpf">@ThePHPF</a> to get the latest updates from the Foundation.</p>
+
+<p>💜️ 🐘</p>
+
+<blockquote>
+  <p>PHP Roundup is prepared by Ayesh Karunaratne from <strong><a href="https://php.watch">PHP.Watch</a></strong>, a source for PHP News, Articles, Upcoming Changes, and more.</p>
+</blockquote>
+]]></content><link href="https://thephp.foundation/blog/2022/04/28/php-roundup-1/"/><id>https://thephp.foundation/blog/2022/04/28/php-roundup-1/</id><pubDate>Thu, 28 Apr 2022 00:00:00 +0000</pubDate><author><name>Ayesh Karunaratne</name><uri>https://twitter.com/Ayeshlive</uri></author></entry><entry><title type="html"><![CDATA[PHP Core Roundup #3]]></title><content type="html"><![CDATA[<p>Welcome back to the <em>PHP Core Roundup</em> series, where we make regular updates on the improvements made to PHP by the <em>PHP Foundation</em> and other contributors.</p>
 
 <p>In this edition, we have news about PHP 8.2 that is only three weeks away from its feature-freeze, and several improvements made by the PHP Foundation team and contributors.</p>
 
@@ -240,264 +500,4 @@ class C {}
 <blockquote>
   <p>PHP Roundup is prepared by Ayesh Karunaratne from <strong><a href="https://php.watch">PHP.Watch</a></strong>, a source for PHP News, Articles, Upcoming Changes, and more.</p>
 </blockquote>
-]]></content><link href="https://thephp.foundation/blog/2022/06/30/php-core-roundup-3/"/><id>https://thephp.foundation/blog/2022/06/30/php-core-roundup-3/</id><author><name>Ayesh Karunaratne</name><uri>https://aye.sh</uri></author></entry><entry><title type="html"><![CDATA[PHP Roundup #1]]></title><content type="html"><![CDATA[<p>Welcome to the first <em>PHP Roundup</em>, where we’ll make regular updates on the improvements made to PHP by the <em>PHP Foundation</em> and other contributors. PHP Roundup is prepared by Ayesh Karunaratne from <strong><a href="https://php.watch">PHP.Watch</a></strong>, a source for PHP news and articles on upcoming changes.</p>
-
-<p>In this series, we highlight some of the interesting and major improvements made to the PHP language. Traditionally, the PHP team releases a new minor version of the interpreter towards the end of each year, but the changes and improvements are discussed and implemented throughout the year.</p>
-
-<p>You don’t necessarily have to be a PHP Foundation backer to follow the PHP Roundup. We’ll be publishing the posts on our website, and you can subscribe to a newsletter:</p>
-
-<div class="px-4 pt-3 pb-10 mb-6 border-b border-t -mx-4 border-gray-200">
-    <div class="max-w-xl mx-auto">
-        <h2 class="text-xl text-left inline-block font-semibold text-gray-800 mb-1">Subscribe to PHP Foundation Updates</h2>
-        <form method="POST" action="https://php-foundation-mailcoach.com/subscribe/9be4e2bd-f9d8-475c-b00e-2dcc4cf90056" class="mt-2">
-            <div class="flex items-center">
-                <input placeholder="Your email address" type="email" class="w-full px-2 py-4 mr-2  bg-gray-100 shadow-inner rounded-md border border-gray-400 focus:outline-none" name="email" required>
-                <button class="bg-[#7f52ff] text-gray-200 px-5 py-2 rounded shadow " style="margin-left: -7.8rem;">Sign Up</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<p>The PHP Foundation currently supports six part-time PHP contributors who work on both maintenance and new features for PHP. Maintenance is not limited to fixing bugs, but also includes work to reduce technical debt, making life easier for everyone working on PHP. The contributors funded by the PHP Foundation collaborate with other contributors on code, documentation, and discussions.</p>
-
-<p>Things marked with 💜 are done by the PHP Foundation team.</p>
-
-<p>Let’s get straight to the updates.</p>
-
-<h2 id="rfc-updates">RFC Updates</h2>
-
-<p>Every major change to PHP is discussed and implemented with the consensus of the PHP community. Each RFC proposes a set of changes, and the PHP Internals community holds a vote that lasts two weeks by default.</p>
-
-<ul>
-<li><p><strong>Accepted: <a href="https://wiki.php.net/rfc/null-false-standalone-types">Allow null and false as stand-alone types</a> 💜</strong></p>
-
-<p>RFC by George Peter Banyard was accepted unanimously with all 38 votes in favor and is now merged into PHP.</p>
-
-<p>Prior to this change, <code>null</code>and <code>false</code>could only be used as part of a Union Type, but not as stand-alone types. This change further improves PHP’s type system to be more expressive and defensive. See the <code>true</code> type RFC below that proposes adding <code>true</code>as a type too.</p>
-
-<p>Learn more about this RFC from the <a href="https://phpinternals.news/99">PHP Internals News podcast</a> hosted by Derick Rethans.</p></li>
-<li><p><strong>Implemented: <a href="https://wiki.php.net/rfc/redact_parameters_in_back_traces">Redacting parameters in back traces</a></strong></p>
-
-<p>RFC by Tim Düsterhus, approved with 24:1 votes in favor, is now implemented in PHP core.</p>
-
-<p>This RFC proposed adding a <code>#[SensitiveParameter]</code> attribute that redacts the parameter's actual value when it is spewed out in stack traces and <code>var_dump</code>output. The attribute can be used to prevent leaking sensitive information in debugging logs.</p>
-
-<p>Learn more about this RFC from the <a href="https://phpinternals.news/97">PHP Internals News podcast</a> hosted by Derick Rethans.</p></li>
-<li><p><strong>Discussion: <a href="https://wiki.php.net/rfc/true-type">Add true type</a> 💜</strong></p>
-
-<p>RFC by George Peter Banyard is currently under discussion, to add true as a type to PHP. In PHP 8.0 Union Types, we added <code>false</code> as one of the possible members of Union Types, but left out <code>true</code>. This RFC proposes to complete it by adding <code>true</code> as a type as well.</p></li>
-<li><p><strong>Accepted: <a href="https://wiki.php.net/rfc/undefined_variable_error_promotion">Undefined Variable Error Promotion</a></strong></p>
-
-<p>RFC by Mark Randall accepted with 33:8 votes in favor.</p>
-
-<p>This proposes to convert the current behavior of PHP raising a warning for accessing an undefined variable (PHP 8.0+) to throw an Error exception instead in PHP 9.0.</p></li>
-<li><p><strong>Voting: <a href="https://wiki.php.net/rfc/undefined_property_error_promotion">Undefined Property Error Promotion</a></strong></p>
-
-<p>Another RFC by Mark Randall proposes to throw an error on undefined class property access, similar to the now accepted changes with undefined variables. Notably, PHP 8.2 already emits deprecation notices on dynamic property creation (<a href="https://php.watch/versions/8.2/dynamic-properties-deprecated#exempt">with a few exceptions</a>).</p></li>
-<li><p><strong>Voting: <a href="https://wiki.php.net/rfc/readonly_classes">Readonly classes</a> 💜</strong></p>
-
-<p>RFC by Máté Kocsis proposes to add support for readonly classes. In such a class, all properties are <code>readonly</code>and dynamic properties are forbidden. Voting is scheduled to start on April 27th.</p></li>
-<li><p><strong>Accepted: <a href="https://wiki.php.net/rfc/deprecate_dollar_brace_string_interpolation">Deprecate ${} string interpolation</a> 💜</strong></p>
-
-<p>RFC by Ilija Tovilo accepted with 31:1 votes in favor.</p>
-
-<p>This RFC proposes to deprecate <code>"${foo}"</code> and "<code>${(foo)}</code>" string interpolation patterns. It does <em>not</em> deprecate the standard "<code>{$foo}</code>" pattern.</p></li>
-<li><p><strong>Accepted: <a href="https://wiki.php.net/rfc/remove_utf8_decode_and_utf8_encode">Deprecate and Remove utf8_encode and utf8_decode</a></strong></p>
-
-<p>Learn more about this RFC from the <a href="https://phpinternals.news/98">PHP Internals News podcast</a> hosted by Derick Rethans.</p></li>
-</ul>
-
-<h2 id="merged-prs-and-commits">Merged PRs and Commits</h2>
-
-<p>Some of the minor changes made to PHP are first made as a pull request to the <a href="github.com/php/php-src">PHP GitHub project</a>, and if deemed acceptable by PHP core maintainers, they are merged without going through a formal RFC process. We have automatic tests in place to flag PRs that break existing functionality. The majority of the minor changes from the community are made through PRs.</p>
-
-<ul>
-<li>New: <a href="https://github.com/php/php-src/pull/7823">Introduce CURLOPT_XFERINFOFUNCTION</a> by <a href="https://github.com/devnexen">David CARLIER</a>.</li>
-<li>Fixed: <a href="https://github.com/php/php-src/issues/8133">Constants in Enum classes causes php-fpm worker to segfault</a> by Ilija Tovilo. 💜</li>
-<li>Fixed: <a href="https://github.com/php/php-src/issues/8273">SplFileObject: key() returns wrong value</a> by George Peter Banyard. <strong>💜</strong></li>
-<li>Fixed: Bug #<a href="https://bugs.php.net/bug.php?id=76003">76003</a> <a href="https://github.com/php/php-src/commit/33bb201b3eddbda0cc93c9cd1cb9adb4c77d0df2">FPM /status reports wrong number of active processes</a> by Jakub Zelenka <strong>💜</strong></li>
-<li>Fixed: Bug #<a href="https://github.com/php/php-src/commit/d8612fb6b7496a4f17e8250037a00b26623c1c77">77023 PHP-FPM cannot shutdown processes</a> by Jakub Zelenka <strong>💜</strong></li>
-<li>Reviewed and merged various fixes and improvements to FPM by Jakub Zelenka: <strong>💜</strong>
-
-<ul>
-<li><a href="https://github.com/php/php-src/commit/2874e5fa052d54affd31ed5eaf3e0d53c9116c93">Emitting error for invalid listen port</a> (implemented by David Carlier)</li>
-<li><a href="https://github.com/php/php-src/commit/7bb2a9ff38b739d2143134b6ce0d9cc3dd9b78fe">SELinux dumpable</a> (implemented by David Carlier)</li>
-<li><a href="https://github.com/php/php-src/commit/2f0918c638cbba0f5d36b9b2f3d0aa8cf95651c9">Clang warning in socket cleanup</a> (implemented by David Carlier)</li>
-<li><a href="https://github.com/php/php-src/commit/7be195caa7589560d5e1a019e389850fdb5c8a1e">Listening queue MacOS support</a> (implemented by David Carlier)</li>
-<li><a href="https://github.com/php/php-src/commit/1e562683cb995b9903f4d24ba9eb5bb89ae3fbfb">New default for listen backlog on Linux</a> (implemented by Cristian Rodríguez)</li>
-<li><a href="https://github.com/php/php-src/commit/ff90d42b8bc292bd7bfc532e29e5cdff242ee3e1">Kqueue typo in remove callback type</a> (implemented by David Carlier)</li>
-</ul></li>
-<li>Fixed: Various (<a href="https://github.com/php/php-src/issues/7752">1</a>, <a href="https://github.com/php/php-src/issues/8101">2</a>, <a href="https://bugs.php.net/bug.php?id=81660">3</a>) bugs related to DateTime support, as well as reimplementing serialization support for all classes, by Derick Rethans 💜</li>
-<li>Improved: Migrated most of the CI setup from Azure Pipelines to GitHub Actions by Ilija Tovilo 💜</li>
-<li>Fixed: <a href="https://github.com/php/php-src/issues/8310">Registry settings are no longer recognized</a> by Christoph M. Becker, reported by Vladimir S.</li>
-<li>Several engine improvements by Dmitry Stogov and Nikita Popov.</li>
-</ul>
-
-<p>Apart from the highlighted changes above, there have been more improvements and fixes from @divinity76, Marco Pivetta, Arnaud Le Blanc, Alex Dowad, and more.</p>
-
-<h2 id="mailing-list-discussions">Mailing List Discussions</h2>
-
-<ul>
-<li><a href="https://externals.io/message/117577">Canonicalize "iterable" into "array|Traversable" and Reflection</a>, started by George Peter Banyard. 💜</li>
-<li><a href="https://externals.io/message/117486">MySQLi Execute Query RFC</a>, started by Craig Francis.</li>
-<li><a href="https://externals.io/message/117501">NULL Coercion Consistency</a>, also started by Craig Francis.</li>
-</ul>
-
-<h2 id="support-php-foundation">Support PHP Foundation</h2>
-
-<p>At PHP Foundation, we support, promote, and advance the PHP language. We financially support six part-time PHP core developers to contribute to the PHP project. You can help support PHP Foundation at <a href="https://opencollective.com/phpfoundation">OpenCollective</a>.</p>
-
-<p>A big thanks to all our sponsors — PHP Foundation is all of us!</p>
-
-<p>A special mention goes to <a href="https://mailcoach.app/">mailcoach.app</a> for providing us with a platform for the newsletter.</p>
-
-<p>Follow us on Twitter <a href="https://twitter.com/thephpf">@ThePHPF</a> to get the latest updates from the Foundation.</p>
-
-<p>💜️ 🐘</p>
-
-<blockquote>
-  <p>PHP Roundup is prepared by Ayesh Karunaratne from <strong><a href="https://php.watch">PHP.Watch</a></strong>, a source for PHP News, Articles, Upcoming Changes, and more.</p>
-</blockquote>
-]]></content><link href="https://thephp.foundation/blog/2022/04/28/php-roundup-1/"/><id>https://thephp.foundation/blog/2022/04/28/php-roundup-1/</id><author><name>Ayesh Karunaratne</name><uri>https://twitter.com/Ayeshlive</uri></author></entry><entry><title type="html"><![CDATA[PHP Core Roundup #2]]></title><content type="html"><![CDATA[<p>Welcome back to round #2 of <em>PHP Core Roundup</em>, where we’ll make regular updates on the improvements made to PHP by the PHP Foundation and other contributors. In this second one in the series, we have news about the upcoming PHP 8.2 release, some new RFCs accepted, voted, and being discussed, and some further improvements to PHP made in the past few weeks.</p>
-
-<p>You don’t necessarily have to be a PHP Foundation backer to follow the PHP Roundup. We’ll be publishing the posts on our website, and you can subscribe to a newsletter:</p>
-
-<div class="px-4 pt-3 pb-10 mb-6 border-b border-t -mx-4 border-gray-200">
-    <div class="max-w-xl mx-auto">
-        <h2 class="text-xl text-left inline-block font-semibold text-gray-800 mb-1">Subscribe to PHP Foundation Updates</h2>
-        <form method="POST" action="https://php-foundation-mailcoach.com/subscribe/9be4e2bd-f9d8-475c-b00e-2dcc4cf90056" class="mt-2">
-            <div class="flex items-center">
-                <input placeholder="Your email address" type="email" class="w-full px-2 py-4 mr-2  bg-gray-100 shadow-inner rounded-md border border-gray-400 focus:outline-none" name="email" required>
-                <button class="bg-[#7f52ff] text-gray-200 px-5 py-2 rounded shadow " style="margin-left: -7.8rem;">Sign Up</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<p>The PHP Foundation currently supports six part-time PHP contributors who work on both maintenance and new features for PHP. Maintenance is not limited to fixing bugs, but also includes work to reduce technical debt, making life easier for everyone working on PHP. The contributors funded by the PHP Foundation collaborate with other contributors on code, documentation, and discussions.</p>
-
-<h2 id="php-8.2-release-managers">PHP 8.2 Release Managers</h2>
-
-<p>For each major version of PHP (such as PHP 7.4, 8.0, 8.1, and 8.2), PHP core developers vote and elect one or two release managers along with a veteran PHP core developer who has been a release manager before.</p>
-
-<p>PHP Release managers are responsible for tagging and creating PHP releases throughout the lifecycle of that PHP version, including the alpha/beta/RC releases, and security releases as well as regular patch versions. Lasting for about three and half years, the release managers have the final say last-minute RFCs as well.</p>
-
-<p>For the upcoming PHP 8.2, we had <a href="https://wiki.php.net/todo/php82">7 candidates</a>, with Ben Ramsey, one of the PHP 8.1 release managers stepping in as the veteran release manager. After a poll that ended on May 18, Sergey Panteleev and Pierrick Charron were elected as rookie release managers.</p>
-
-<p>Congratulations Sergey, Pierrick, and Ben on being PHP 8.2 release managers!</p>
-
-<h2 id="rfc-updates">RFC Updates</h2>
-
-<p>Every major change to PHP is discussed and implemented with the consensus of the PHP community. Each RFC proposes a set of changes, and the PHP Internals community holds a vote that lasts two weeks by default.</p>
-
-<p>Things marked with 💜 are done by the PHP Foundation team.</p>
-
-<ul>
-<li><p><strong>Implemented: <a href="https://wiki.php.net/rfc/deprecate_dollar_brace_string_interpolation">Deprecate ${} string interpolation</a> 💜</strong></p>
-
-<p>RFC by Ilija Tovilo was accepted with 31:1 votes in favor, and is now implemented in PHP core. This RFC proposes to deprecate string interpolation with <code>${var}</code> and <code>${expr}</code> patterns with <code>{$var}</code> and <code>{${expr}}</code> patterns.</p>
-
-<p>On top 1,000 most downloaded packages as per Packagist data, over 40 packages contained at least one occurrence of this now-deprecated pattern. Fixes are being made to the libraries, you can help out by testing your libraries and submitting pull-requests to the relevant repositories.</p>
-
-<p>This RFC is likely to be followed up with another RFC vote to decide whether the deprecated string interpolation patterns should throw an error, or silently ignored in PHP 9.0</p>
-
-<p>Learn more about this RFC on <a href="https://php.watch/versions/8.2/$%7Bvar%7D-string-interpolation-deprecated">PHP.Watch</a>.</p></li>
-<li><p><strong>Implemented: <a href="https://wiki.php.net/rfc/readonly_classes">Readonly Classes</a> 💜</strong></p>
-
-<p>Máté Kocsis follows up PHP 8.1 readonly properties feature with support for marking the entire class as readonly in this new RFC. In PHP 8.2, all properties (must be typed) of the class will be implicitly readonly if the class is declared as readonly.</p>
-
-<p>Learn more about this RFC on <a href="https://php.watch/versions/8.2/readonly-classes">PHP.Watch</a>.</p></li>
-<li><p><strong>Accepted: <a href="https://wiki.php.net/rfc/mysqli_execute_query">MySQLi Execute Query</a></strong></p>
-
-<p>RFC by Kamil Tekiela and Craig Francis was accepted unanimously with 24 votes. This RFC proposes to add a new <code>mysqli_execute_query</code> function to the MySQLi extension that greatly simplifies the multiple function calls it required to prepare, bind parameters, execute, and retrieve data with mysqli_prepare/execute/stement_get_result functions.</p>
-
-<p>Learn more about this RFC on <a href="https://php.watch/versions/8.2/mysqli_execute_query">PHP.Watch</a>.</p></li>
-<li><p><strong>Accepted: <a href="https://wiki.php.net/rfc/undefined_property_error_promotion">Undefined Property Error Promotion</a></strong></p>
-
-<p>RFC by Mark Randall proposes to throw an error on undefined class property access, similar to the now accepted changes with undefined variables. Notably, PHP 8.2 already emits deprecation notices on dynamic property creation (<a href="https://php.watch/versions/8.2/dynamic-properties-deprecated#exempt">with a few exceptions</a>).</p></li>
-<li><p><strong>Under Discussion: <a href="https://wiki.php.net/rfc/partially-supported-callables-expand-deprecation-notices">Expand deprecation notice scope for partially supported callables</a></strong></p>
-
-<p>Juliette Reinders Folmer follows up on the <a href="https://wiki.php.net/rfc/deprecate_partially_supported_callables">Deprecate partially supported callables RFC</a> (implemented in PHP 8.2) to widen the scope of the deprecation to include is_callable function and when type verification is executed on the callable type.</p>
-
-<p>Learn more about this RFC on <a href="https://phpinternals.news/101">PHP Internals News Podcast</a> hosted by Derick Rethans.</p></li>
-<li><p><strong>Under Discussion: <a href="https://wiki.php.net/rfc/stricter_implicit_boolean_coercions">Stricter implicit boolean coercions</a></strong></p>
-
-<p>RFC by Andreas Leathley is currently under discussion, which discovers ways how various types are coerced with boolean values. A <a href="https://externals.io/message/117732">lengthy discussion</a> is underway.</p></li>
-<li><p><strong>Under Discussion: <a href="https://wiki.php.net/rfc/fetch_property_in_const_expressions">Fetching properties in constant expressions</a> 💜</strong></p>
-
-<p>RFC by Ilija Tovilo proposes adding support for fetching properties in constant expressions using the <code>-&gt;</code> operator. This will make it possible to fetch the name and value of enums in constant expressions.</p></li>
-</ul>
-
-<h2 id="merged-prs-and-commits">Merged PRs and Commits</h2>
-
-<p>Some of the minor changes made to PHP are first made as a pull request to the <a href="http://github.com/php/php-src">PHP GitHub project</a>, and if deemed acceptable by PHP core maintainers, they are merged without going through a formal RFC process. We have automatic tests in place to flag PRs that break existing functionality. The majority of the minor changes from the community are made through PRs.</p>
-
-<ul>
-<li>New: Curl extension support for <code>CURLOPT_MAXFILESIZE_LARGE</code> and <code>CURLOPT_XFERINFOFUNCTION</code> options in PR <a href="https://github.com/php/php-src/pull/7823">#7823</a> and <a href="https://github.com/php/php-src/pull/8557">#8557</a> by David Carlier.</li>
-<li>New: Add <code>ReflectionMethod::hasPrototype()</code> in PR <a href="https://github.com/php/php-src/pull/8487">#8487</a> by Ollie Read.</li>
-<li>New: Add <code>ReflectionFunction::isAnonymous()</code> in PR <a href="https://github.com/php/php-src/pull/8499">#8499</a> by Nicolas Grekas.</li>
-<li>New: Socket extension support for <code>TCP_NOTSENT_LOWAT</code> and <code>SO_MEMINFO</code> options in PR <a href="https://github.com/php/php-src/pull/8559">#8559</a> and commit <a href="https://github.com/php/php-src/commit/2410e378c1729df267b0be82e9c7ab8a47b9a6a6">2410e378</a> by David Carlier.</li>
-<li>New: <code>idate()</code> now accepts format specifiers "N" (ISO Day-of-Week) and "o" (ISO Year) in commit <a href="https://github.com/php/php-src/commit/12702a20474635605cd7f08a9d0e1acac3a5f078">12702a20</a> by Pavel Djundik.</li>
-<li>Improved: Tidy extension’s tidy class properties are now typed, and tidyNode properties are declared readonly. PR <a href="https://github.com/php/php-src/pull/8515">#8515</a> by Máté Kocsis 💜.</li>
-<li>Improved: It is now possible to declare constants in stubs. This change will make it easier to keep the manual always up-to-date as well as static analyzers to get type information about constants. PR <a href="https://github.com/php/php-src/pull/7434">#7434</a> by Máté Kocsis 💜.</li>
-<li>Changed: Build <code>ext/zip</code> as shared library by default on Windows in PR <a href="https://github.com/php/php-src/pull/8549">#8549</a> by Christoph M. Becker.</li>
-<li>Fixed: Bug <a href="https://github.com/php/php-src/issues/8548">#8548</a>  <code>stream_wrapper_unregister()</code> memory leak in PR <a href="https://github.com/php/php-src/pull/8587">#8587</a> by Ilija Tovilo 💜.</li>
-<li>Fixed: <code>ini_get()</code> could be optimized-out by the optimizer in PR <a href="https://github.com/php/php-src/pull/8507">#8507</a> by Arnaud Le Blanc 💜.</li>
-<li>Fixed: Crash while unregistering <code>dl()’</code>-ed extension in ZTS in PR <a href="https://github.com/php/php-src/pull/8435">#8435</a> by Arnaud Le Blanc 💜.</li>
-<li>Fixed: Add JIT guards for <code>INIT_METHOD_CALL</code> when the method may be modified PR <a href="https://github.com/php/php-src/pull/8600">#8600</a> by Arnaud Le Blanc 💜.</li>
-<li>Fixed: Datetime format string to follow POSIX spec in <code>ftp_mdtm</code> in PR <a href="https://github.com/php/php-src/pull/8259">#8259</a> by Jihwan Kim.</li>
-<li>Fixed: <code>parse_url()</code> can not recognize port without scheme in PR <a href="https://github.com/php/php-src/pull/7844">#7844</a> by @pandaLIU.</li>
-<li>Fixed bug #72185: php-fpm writes empty fcgi record causing nginx 502 by Jakub Zelenka and @loveharmful 💜.</li>
-<li>Fixed: Bug #79589: ssl3_read_n:unexpected eof while reading by Jakub Zelenka 💜.</li>
-<li>Fixed: Memory leak in <code>Enum::from</code>/<code>tryFrom</code> when type coercion occurs in internal enums in PR <a href="https://github.com/php/php-src/pull/8633">#8633</a> by Ilija Tovilo 💜.</li>
-<li>Improved: Add internal C API for fetching backed enums by value in PR <a href="https://github.com/php/php-src/pull/8518">#8518</a> by Ilija Tovilo</li>
-<li>Fixed: Several bug fixes in Date extension by Derick Rethans 💜.
-
-<ul>
-<li>Bug <a href="https://bugs.php.net/bug.php?id=51987">#51987</a> DateTime fails to parse an ISO 8601 ordinal date (extended format) in PR #8589.</li>
-<li><code>DateInterval::createFromDateString</code> does not throw if non-relative items are present in PR <a href="https://github.com/php/php-src/issues/8458">#8458</a>.</li>
-<li>Bug <a href="https://bugs.php.net/bug.php?id=72963">#72963</a> Null-byte injection in <code>DateTime::createFromFormat</code> and related functions.</li>
-<li>Bug <a href="https://github.com/php/php-src/issues/8471">#GH-8471</a> Segmentation fault when converting immutable and mutable <code>DateTime</code> instances created using reflection in PR <a href="https://github.com/php/php-src/pull/8497">#8497</a>.</li>
-<li>Bug <a href="https://bugs.php.net/bug.php?id=68549">#68549</a> Timezones and offsets are not properly used when working with dates in PR <a href="https://github.com/php/php-src/pull/8589">#8589</a>.</li>
-<li>Updated to timelib 2021.12 in PR <a href="https://github.com/php/php-src/pull/8589">#8589</a> by Derick Rethans 💜. Also fixes bug <a href="https://bugs.php.net/bug.php?id=51934">#51934</a>, <a href="https://github.com/php/php-src/issues/7758">GH-7758</a>, <a href="https://bugs.php.net/bug.php?id=68549">#68549</a>, <a href="https://bugs.php.net/bug.php?id=66019">#66019</a>, and <a href="https://bugs.php.net/bug.php?id=81565">#81565</a>.</li>
-<li>Bug <a href="https://bugs.php.net/bug.php?id=52015">#52015</a> Allow including end date in <code>DatePeriod</code> iterations in PR <a href="https://github.com/php/php-src/pull/8550">#8550</a>.</li>
-<li>DatePeriod properties are also going to be properly declared as readonly soon (PR <a href="https://github.com/php/php-src/pull/8534">#8534</a>).</li>
-<li>Bug <a href="https://bugs.php.net/bug.php?id=74671">#74671</a> DST timezone abbreviation has incorrect offset in PR <a href="https://github.com/php/php-src/pull/8595">#8595</a>.</li>
-<li>Bug <a href="https://bugs.php.net/bug.php?id=78139">#78139</a>  <code>timezone_open</code> accepts invalid timezone string argument in PR <a href="https://github.com/php/php-src/pull/8595">#8595</a>.</li>
-</ul></li>
-</ul>
-
-<p>Apart from the highlighted changes above, there have been more improvements and fixes from Alex Dowad, Nikita Popov, Dmitry Stogov, and more contributors.</p>
-
-<h2 id="mailing-list-discussions">Mailing List Discussions</h2>
-
-<ul>
-<li><a href="https://externals.io/message/117678">The future of objects and operators</a> started by Jordan LeDoux as a follow-up to previously declined <a href="https://wiki.php.net/rfc/user_defined_operator_overloads">Operator overloading RFC</a>.</li>
-<li><a href="https://externals.io/message/117501">NULL Coercion Consistency</a> started by Craig Francis.</li>
-<li><a href="https://externals.io/message/117732">Stricter implicit boolean coercions</a> started by Andreas Leathley.</li>
-<li><a href="https://github.com/php/php-src/issues/8420">Body-less methods</a> started by Aleksei Gagarin.</li>
-</ul>
-
-<h2 id="other-news">Other News</h2>
-
-<ul>
-<li><a href="https://www.npopov.com/2022/05/22/The-opcache-optimizer.html">The opcache optimizer</a> – blog post by Nikita Popov.</li>
-<li><a href="https://blog.jetbrains.com/phpstorm/2022/05/php-annotated-may-2022/">PHP Annotated</a> – for more news and links from the userland PHP community.</li>
-</ul>
-
-<h2 id="support-php-foundation">Support PHP Foundation</h2>
-
-<p>At PHP Foundation, we support, promote, and advance the PHP language. We financially support six part-time PHP core developers to contribute to the PHP project. You can help support PHP Foundation at <a href="https://opencollective.com/phpfoundation">OpenCollective</a>.</p>
-
-<p>A big thanks to all our sponsors — PHP Foundation is all of us!</p>
-
-<p>A special mention goes to <a href="https://mailcoach.app/">mailcoach.app</a> for providing us with a platform for the newsletter.</p>
-
-<p>Follow us on Twitter <a href="https://twitter.com/thephpf">@ThePHPF</a> to get the latest updates from the Foundation.</p>
-
-<p>💜️ 🐘</p>
-
-<blockquote>
-  <p>PHP Roundup is prepared by Ayesh Karunaratne from <strong><a href="https://php.watch">PHP.Watch</a></strong>, a source for PHP News, Articles, Upcoming Changes, and more.</p>
-</blockquote>
-]]></content><link href="https://thephp.foundation/blog/2022/05/30/php-core-roundup-2/"/><id>https://thephp.foundation/blog/2022/05/30/php-core-roundup-2/</id><author><name>Ayesh Karunaratne</name><uri>https://aye.sh</uri></author></entry></feed>
+]]></content><link href="https://thephp.foundation/blog/2022/06/30/php-core-roundup-3/"/><id>https://thephp.foundation/blog/2022/06/30/php-core-roundup-3/</id><pubDate>Thu, 30 Jun 2022 00:00:00 +0000</pubDate><author><name>Ayesh Karunaratne</name><uri>https://aye.sh</uri></author></entry></feed>
