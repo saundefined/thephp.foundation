@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/base16/darcula.min.css">
+    <script src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
 
     <meta property="og:url" content="https://thephp.foundation/.">
     <meta property="og:type" content="website">
@@ -98,6 +100,10 @@
                     <a class="text-[rgba(25,25,28,.7)] mr-0 lg:mr-4 block lg:inline-block py-2 lg:py-0"
                        href="https://thephp.foundation/blog">
                        Blog
+                    </a>
+                    <a class="text-[rgba(25,25,28,.7)] mr-0 lg:mr-4 block lg:inline-block py-2 lg:py-0"
+                       href="https://thephp.foundation/structure">
+                        Structure
                     </a>
                 </div>
 
@@ -278,7 +284,7 @@
                 </div>
     
                 <div class="my-6">
-                    <a href="https://opencollective.com/phpfoundation" target="_blank" rel="noopener noreferrer" class="inline-block py-4 no-underline px-6 text-white bg-[#7f52ff] rounded-3xl hover:bg-[rgba(127,82,255,.8)]">See all organizations</a>
+                    <a href="https://opencollective.com/phpfoundation" target="_blank" rel="noopener noreferrer" class="inline-block py-4 no-underline px-6 !text-white bg-[#7f52ff] rounded-3xl hover:bg-[rgba(127,82,255,.8)]">See all organizations</a>
                 </div>
             </div>
             <div x-show="!isLoaded">
@@ -325,7 +331,7 @@
                 </div>
     
                 <div class="my-6">
-                    <a href="https://opencollective.com/phpfoundation" target="_blank" rel="noopener noreferrer" class="inline-block py-4 no-underline px-6 text-white bg-[#7f52ff] rounded-3xl hover:bg-[rgba(127,82,255,.8)]">See all individuals</a>
+                    <a href="https://opencollective.com/phpfoundation" target="_blank" rel="noopener noreferrer" class="inline-block py-4 no-underline px-6 !text-white bg-[#7f52ff] rounded-3xl hover:bg-[rgba(127,82,255,.8)]">See all individuals</a>
                 </div>
             </div>
             <div x-show="!isLoaded">
@@ -372,5 +378,7 @@
     </footer>
 
         
-        </body>
+        
+    <script>hljs.highlightAll();</script>
+</body>
 </html>
