@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/base16/darcula.min.css">
+    <script src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
 
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:type" content="website">
@@ -105,6 +107,10 @@
                        href="{{ site.url }}/blog">
                        Blog
                     </a>
+                    <a class="text-[rgba(25,25,28,.7)] mr-0 lg:mr-4 block lg:inline-block py-2 lg:py-0"
+                       href="{{ site.url }}/structure">
+                        Structure
+                    </a>
                 </div>
 
                <a href="mailto:contact@thephp.foundation">
@@ -160,5 +166,7 @@
 
     {% block scripts_after %}
     {% endblock %}
+
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
