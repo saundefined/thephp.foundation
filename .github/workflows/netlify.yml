@@ -1,6 +1,6 @@
 name: Build and Deploy to Netlify
 on:
-  pull_request:
+  pull_request_target:
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -43,6 +43,7 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
+          production-deploy: false
           publish-dir: './output_prod'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
