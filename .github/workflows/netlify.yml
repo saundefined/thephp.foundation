@@ -1,6 +1,6 @@
 name: Build and Deploy to Netlify
 on:
-  pull_request:
+  pull_request_target:
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -39,12 +39,21 @@ jobs:
 
       - name: Build production site
         run: ./vendor/bin/sculpin generate --env=prod
+        
+      - name: "Archive production site"
+        run: "tar -cf output_prod.tar output_prod"
+        
+      - name: "Upload artifact"
+        uses: actions/upload-artifact@v2
+        with:
+          name: output_prod
+          path: output_prod.tar
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
+          production-deploy: false
           publish-dir: './output_prod'
-          production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Deploy from GitHub Actions"
           enable-pull-request-comment: true
